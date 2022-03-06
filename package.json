@@ -46,7 +46,8 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "express-async-errors": "^3.1.1"
   },
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir build --copy-files --no-copy-ignored",
