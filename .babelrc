@@ -1,0 +1,33 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ],
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "@controllers": "./src/controllers",
+          "@services": "./src/services",
+          "@routes": "./src/routes",
+          "@middlewares": "./src/middlewares",
+          "@databases": "src/databases",
+          "@exceptions": "./src/exceptions",
+          "@configs": "./src/configs",
+          "@libs": "./src/libs",
+          "@utils": "./src/utils",
+          "@@types": "./src/@types"
+        }
+      }
+    ]
+  ],
+  "ignore": ["**/*.spec.ts"]
+}
