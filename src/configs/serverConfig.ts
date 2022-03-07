@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import type { AppConfig } from "@@types/configs/AppConfig";
+import type { ServerConfig } from "@@types/configs/ServerConfig";
 
 dotenv.config({
   path: process.env.NODE_ENV
@@ -7,10 +7,10 @@ dotenv.config({
     : ".env.development",
 });
 
-const appConfig = {
+const serverConfig = {
   PREFIX: process.env.PREFIX,
   PORT: Number(process.env.PORT),
   HOSTNAME: process.env.HOSTNAME,
-} as AppConfig;
+} as ServerConfig;
 
-export { appConfig };
+export { serverConfig };

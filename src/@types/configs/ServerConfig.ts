@@ -1,7 +1,7 @@
-interface AppConfig {
+interface ServerConfig {
   PREFIX: string;
   HOSTNAME: string;
   PORT: number;
 }
 
-export type { AppConfig };
+export type { ServerConfig };

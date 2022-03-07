@@ -1,8 +1,8 @@
-import { appConfig } from "@configs/appConfig";
+import { serverConfig } from "@configs/serverConfig";
 import { app } from "./app";
 
-const { PREFIX, HOSTNAME, PORT } = appConfig;
+const { PREFIX, HOSTNAME, PORT } = serverConfig;
 
 app.listen(PORT, HOSTNAME, () =>
-  console.log(`SERVER ON: ${PREFIX}://${HOSTNAME}:${PORT}`)
+  console.log(`SERVER ON: ${PREFIX}://${HOSTNAME}:${PORT}`),
 );
