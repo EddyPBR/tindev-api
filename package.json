@@ -18,7 +18,7 @@
     }
   },
   "prisma": {
-    "schema": "./src/database/schema.prisma"
+    "schema": "./src/databases/schema.prisma"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
@@ -60,7 +60,7 @@
     "build": "babel src --extensions \".js,.ts\" --out-dir build --copy-files --no-copy-ignored",
     "start": "cross-env NODE_ENV=production node ./build/server.js",
     "dev": "cross-env NODE_ENV=development ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --files --ignore-watch node_modules --no-notify src/server.ts",
-    "migrate:dev": "dotenv -e .env.development -- yarn prisma migrate dev",
+    "migrate:dev": "dotenv -e .env.development -- yarn prisma migrate dev --preview-feature",
     "migrate:prod": "dotenv -e .env.production -- yarn prisma migrate dev",
     "lint": "eslint --fix --ext .js,.ts,.json ."
   }

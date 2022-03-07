@@ -6,3 +6,27 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Developer {
+  id         String    @id @unique @default(uuid())
+  name       String    @unique
+  user       String    @unique
+  bio        String?
+  avatar_url String
+  created_at DateTime  @default(now())
+  updated_at DateTime  @default(now())
+  likes      Like[]
+  dislikes   Dislike[]
+}
+
+model Like {
+  id          Int       @id @default(autoincrement())
+  developer   Developer @relation(fields: [developerId], references: [id])
+  developerId String
+}
+
+model Dislike {
+  id          Int       @id @default(autoincrement())
+  developer   Developer @relation(fields: [developerId], references: [id])
+  developerId String
+}
