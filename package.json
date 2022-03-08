@@ -50,6 +50,7 @@
   "dependencies": {
     "@prisma/client": "^3.10.0",
     "@types/node": "^17.0.21",
+    "axios": "^0.26.0",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "express": "^4.17.3",
@@ -59,7 +60,7 @@
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir build --copy-files --no-copy-ignored",
     "start": "cross-env NODE_ENV=production node ./build/server.js",
-    "dev": "cross-env NODE_ENV=development ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --files --ignore-watch node_modules --no-notify src/server.ts",
+    "dev": "cross-env NODE_ENV=development ts-node-dev --exit-child -r tsconfig-paths/register --respawn --transpile-only --files --ignore-watch node_modules --no-notify src/server.ts",
     "migrate:dev": "dotenv -e .env.development -- yarn prisma migrate dev --preview-feature",
     "migrate:prod": "dotenv -e .env.production -- yarn prisma migrate dev",
     "lint": "eslint --fix --ext .js,.ts,.json ."
