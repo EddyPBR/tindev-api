@@ -1,14 +1,10 @@
 import { Router } from "express";
-
-import { HelloWorldController } from "@controllers/HelloWorldController";
-import { ErrorHandlerController } from "@controllers/ErrorHandlerController";
-
-const helloWorld = new HelloWorldController();
-const errorController = new ErrorHandlerController();
+import { AvailableDeveloperController } from "@controllers/AvailableDeveloperController";
+import { CreateDeveloperController } from "@controllers/CreateDeveloperController";
 
 const router = Router();
 
-router.get("/", helloWorld.index);
-router.get("/error", errorController.index);
+router.get("/developers", new AvailableDeveloperController().handle);
+router.post("/developers", new CreateDeveloperController().handle);
 
 export { router };
