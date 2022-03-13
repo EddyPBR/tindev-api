@@ -1,15 +1,15 @@
 import { Request, Response } from "express";
 import { AvailableDeveloperService } from "@services/AvailableDeveloperService";
-import { FindDeveloperByUserService } from "@services/FindDeveloperByUserService";
+import { FindDeveloperByIdService } from "@services/FindDeveloperByIdService";
 
 class AvailableDeveloperController {
   async handle(request: Request, response: Response) {
-    const username = request.headers.username as string;
+    const id = request.headers.id as string;
 
-    const findDeveloperByUserService = new FindDeveloperByUserService().execute;
+    const findDeveloperByIdService = new FindDeveloperByIdService().execute;
 
-    const developerExists = await findDeveloperByUserService({
-      username: username,
+    const developerExists = await findDeveloperByIdService({
+      developerId: id,
     });
 
     if (!developerExists) {
